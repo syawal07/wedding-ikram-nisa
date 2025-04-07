@@ -21,6 +21,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  animation: fadeInHero 1.5s ease-in-out both;
 }
 
 .hero::before {
@@ -29,17 +30,20 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 120%; /* untuk efek paralaks */
   background-image: url(img/bg-prewed.jpg);
   background-size: cover;
   background-position: center;
   z-index: -1;
   filter: grayscale(20%) brightness(0.8);
+  transform: translateY(-10%);
+  animation: parallaxBg 20s ease-in-out infinite alternate;
 }
 
 .hero main {
   max-width: 800px;
   width: 100%;
+  animation: slideFadeUp 1.5s ease-out both;
 }
 
 .hero h1,
@@ -47,41 +51,97 @@ body {
 .hero p {
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
   margin-bottom: 1rem;
+  opacity: 0;
+  animation: fadeInText 1s ease-out forwards;
 }
 
-/* Ukuran font responsif */
 .hero h1 {
   font-family: 'Sacramento', cursive;
   font-size: 6rem;
   color: #fff;
+  animation-delay: 0.5s;
 }
 
 .hero h4 {
   font-size: 1.6rem;
+  color: #fff;
+  animation-delay: 1s;
 }
 
 .hero p {
   font-size: 1.4rem;
+  color: #fff;
+  animation-delay: 1.5s;
 }
 
 /* Tombol */
 .hero a {
   color: #dc3545;
-  background-color: white;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease-in-out;
+  background-color: #fff;
+  font-weight: 500;
+  font-size: 1.1rem;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.4s ease-in-out;
   border-radius: 50px;
   padding: 0.75rem 2rem;
+  display: inline-block;
+  margin-top: 1rem;
+  animation: fadeInText 1s ease-out forwards;
+  animation-delay: 2s;
+  opacity: 0;
 }
 
 .hero a:hover {
   background-color: #dc3545;
-  color: white;
-  transform: scale(1.05);
+  color: #fff;
+  transform: scale(1.08);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ========== ANIMATIONS ========== */
+@keyframes fadeInHero {
+  0% {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInText {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes parallaxBg {
+  0% {
+    transform: translateY(-10%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
 }
 
 /* ======== RESPONSIVE BREAKPOINTS ======== */
-
 @media (max-width: 768px) {
   .hero h1 {
     font-size: 4rem;
@@ -119,6 +179,7 @@ body {
     padding: 0.5rem 1.2rem;
   }
 }
+
 
 
 /* NAVBAR */
