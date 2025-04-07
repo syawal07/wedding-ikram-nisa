@@ -610,3 +610,83 @@ footer li {
     transform: rotate(360deg);
   }
 }
+/* Tambahan Responsive & Smooth Enhancements */
+
+/* Responsif tambahan untuk ukuran tablet dan ponsel */
+@media (max-width: 768px) {
+  .home {
+    padding-top: 10rem;
+    padding-bottom: 3rem;
+  }
+
+  .home h2,
+  .info h2,
+  .story h2,
+  .gallery h2,
+  .rsvp h2,
+  .gifts h2 {
+    font-size: 3rem;
+  }
+
+  .home .couple {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 60px;
+  }
+
+  .hero {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .home {
+    padding-top: 8rem;
+    padding-bottom: 2rem;
+  }
+
+  .home h2,
+  .info h2,
+  .story h2,
+  .gallery h2,
+  .rsvp h2,
+  .gifts h2 {
+    font-size: 2.5rem;
+  }
+
+  .home .couple h3 {
+    font-size: 1.5rem;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero h4 {
+    font-size: 1rem;
+  }
+
+  .hero p {
+    font-size: 0.95rem;
+  }
+}
+
+/* Smooth Transition Global */
+* {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Animasi saat elemen muncul ketika scroll (gunakan bersama JS kalau mau lebih dinamis) */
+.scroll-fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: scrollFadeIn 1s ease-out forwards;
+}
+
+@keyframes scrollFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
