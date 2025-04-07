@@ -28,10 +28,12 @@
 
 <body>
 
- <section id="hero"
+<section id="hero"
   class="hero w-100 h-100 p-3 mx-auto text-center d-flex justify-content-center align-items-center text-white">
   <main class="animate__animated animate__fadeInUp">
     <h4>Kepada <span>Bapak/Ibu/Saudara/i,</span></h4>
+    <h4 id="nama-tamu">Tamu Undangan</h4>
+
     <h1>Ikram & Nisa</h1>
     <p>Akan melangsungkan resepsi pernikahan dalam:</p>
     <div class="simply-countdown"></div>
@@ -108,8 +110,6 @@
     </div>
   </div>
 </section>
-
-
 
   <section id="info" class="info">
     <div class="container">
@@ -462,6 +462,18 @@
   const fadeElements = document.querySelectorAll('.fade-in');
   fadeElements.forEach(el => observer.observe(el));
 </script>
+<script>
+  function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+  }
 
+  const namaTamu = getQueryParam('to');
+  const elemenNama = document.getElementById('nama-tamu');
+  if (namaTamu) {
+    const namaFormatted = decodeURIComponent(namaTamu.replace(/\+/g, ' '));
+    elemenNama.textContent = namaFormatted;
+  }
+</script>
   </body>
 </html>
